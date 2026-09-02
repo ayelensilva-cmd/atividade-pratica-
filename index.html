@@ -5,15 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apoio à Terceira Idade — Cuidado e Conexão</title>
     
-    <!-- Google Fonts para tipografia moderna e legível -->
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 
     <style>
-        /* ==========================================================================
-           1. ESTILOS BASE E VARIÁVEIS (CSS)
-           ========================================================================== */
+        
         :root {
             --primary: #2563eb;
             --primary-dark: #1d4ed8;
@@ -24,12 +22,12 @@
             --text-main: #1e293b;
             --text-muted: #64748b;
             --border-color: #e2e8f0;
-            --font-size: 18px; /* Tamanho base otimizado para legibilidade */
+            --font-size: 18px; 
             --radius: 12px;
             --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
         }
 
-        /* Estilos do Modo Alto Contraste */
+        
         body.alto-contraste {
             --primary: #ffff00;
             --primary-dark: #ffffff;
@@ -57,16 +55,10 @@
             background-color: var(--bg-body);
             color: var(--text-main);
         }
-
-        /* Acessibilidade de foco para navegação por teclado */
         a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
             outline: 3px solid var(--accent);
             outline-offset: 3px;
         }
-
-        /* ==========================================================================
-           2. NAVEGAÇÃO E CABEÇALHO
-           ========================================================================== */
         header {
             background-color: var(--bg-card);
             border-bottom: 1px solid var(--border-color);
@@ -144,10 +136,6 @@
             background-color: #ffff00;
             color: #000000;
         }
-
-        /* ==========================================================================
-           3. BANNER PRINCIPAL (HERO)
-           ========================================================================== */
         .hero {
             background: linear-gradient(135deg, #1e40af, var(--primary));
             color: #ffffff;
@@ -205,10 +193,6 @@
         .btn-main:hover {
             transform: translateY(-2px);
         }
-
-        /* ==========================================================================
-           4. SEÇÃO DE SERVIÇOS
-           ========================================================================== */
         .container {
             max-width: 1200px;
             margin: 4rem auto;
@@ -271,10 +255,6 @@
         .card p {
             color: var(--text-muted);
         }
-
-        /* ==========================================================================
-           5. FORMULÁRIO DE ATENDIMENTO
-           ========================================================================== */
         .form-section {
             background-color: var(--bg-card);
             border-radius: var(--radius);
@@ -340,10 +320,6 @@
             text-align: center;
             font-weight: 700;
         }
-
-        /* ==========================================================================
-           6. RODAPÉ
-           ========================================================================== */
         footer {
             background-color: var(--bg-card);
             border-top: 1px solid var(--border-color);
@@ -365,7 +341,7 @@
 </head>
 <body>
 
-    <!-- Cabeçalho com Acessibilidade -->
+
     <header>
         <div class="header-container">
             <a href="#" class="logo">
@@ -385,7 +361,6 @@
         </div>
     </header>
 
-    <!-- Banner Principal -->
     <section class="hero">
         <div class="hero-content">
             <h1>Apoio, carinho e assistência para a melhor idade</h1>
@@ -393,8 +368,6 @@
             <a href="#solicitar" class="btn-main">Pedir Ajuda Agora</a>
         </div>
     </section>
-
-    <!-- Seção de Serviços -->
     <main class="container" id="servicos">
         <div class="section-header">
             <h2>Nossos Serviços Gratuitos</h2>
@@ -421,8 +394,6 @@
             </article>
         </div>
     </main>
-
-    <!-- Formulário de Solicitação -->
     <section class="container" id="solicitar">
         <div class="form-section">
             <div class="section-header" style="margin-bottom: 2rem;">
@@ -465,24 +436,18 @@
             </div>
         </div>
     </section>
-
-    <!-- Rodapé -->
     <footer>
         <p>&copy; 2026 Apoio à Terceira Idade. Todos os direitos reservados. Projeto sem fins lucrativos.</p>
     </footer>
-
-    <!-- ==========================================================================
-       7. LÓGICA E INTERATIVIDADE (JAVASCRIPT)
-       ========================================================================== -->
     <script>
-        // --- 1. Alternar Modo Alto Contraste ---
+        
         const btnContraste = document.getElementById('btn-contraste');
         btnContraste.addEventListener('click', () => {
             document.body.classList.toggle('alto-contraste');
         });
 
-        // --- 2. Controle do Tamanho do Texto ---
-        let tamanhoFonteAtual = 18; // Tamanho padrão em px
+       
+        let tamanhoFonteAtual = 18; 
         const btnAumentar = document.getElementById('btn-aumentar');
         const btnDiminuir = document.getElementById('btn-diminuir');
 
@@ -500,20 +465,14 @@
             }
         });
 
-        // --- 3. Manipulação do Formulário ---
+       
         const form = document.getElementById('form-atendimento');
         const feedbackMsg = document.getElementById('feedback-msg');
 
         form.addEventListener('submit', (event) => {
-            event.preventDefault(); // Impede o envio do formulário padrão
-
-            // Exibe a mensagem de sucesso
+            event.preventDefault(); 
             feedbackMsg.style.display = 'block';
-
-            // Limpa o formulário
             form.reset();
-
-            // Esconde a mensagem de confirmação após 5 segundos
             setTimeout(() => {
                 feedbackMsg.style.display = 'none';
             }, 5000);
