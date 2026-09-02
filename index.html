@@ -156,7 +156,7 @@ button:hover {
     color: #0056b3;
 }
 
-/* Modo Alto Contraste */
+ Modo Alto Contraste *
 body.alto-contraste {
     background-color: #000000;
     color: #ffff00;
@@ -183,4 +183,20 @@ footer {
     background-color: #ddd;
     margin-top: 30px;
 }
+ Alternar Modo de Alto Contraste para Acessibilidade
+const btnContraste = document.getElementById
 
+btnContraste.addEventListener () => {
+    document.body.classList.toggle('alto-contraste');
+}
+
+// Ação do Botão de Solicitante
+const btnSolicitar = document.getElementById('btn-solicitar');
+const mensagemStatus = document.getElementById('mensagem-status');
+
+btnSolicitar.addEventListener('click', () => {
+    mensagemStatus.textContent = 'Solicitação recebida com sucesso! Um voluntário entrará em contato em breve.';
+    mensagemStatus.style.color = '#28a745';
+    mensagemStatus.style.fontWeight = 'bold';
+    mensagemStatus.style.marginTop = '15px';
+});
