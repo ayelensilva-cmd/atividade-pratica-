@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apoio à Terceira Idade</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Apoio à Terceira Idade</h1>
+        <p>Promovendo qualidade de vida, inclusão e bem-estar.</p>
+        <button id="btn-contraste">Modo Alto Contraste</button>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#dicas">Dicas de Saúde</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <section id="servicos">
+            <h2>Como Ajudamos</h2>
+            <div class="cards">
+                <article class="card">
+                    <h3>Inclusão Digital</h3>
+                    <p>Aulas práticas para uso de smartphones, redes sociais e navegação segura na internet.</p>
+                </article>
+                <article class="card">
+                    <h3>Acompanhamento</h3>
+                    <p>Voluntários para conversas, passeios e auxílio em tarefas diárias simples.</p>
+                </article>
+                <article class="card">
+                    <h3>Atividades Físicas</h3>
+                    <p>Grupos de caminhada e alongamento adaptados para a manutenção da mobilidade.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="dicas">
+            <h2>Dicas de Bem-Estar</h2>
+            <ul>
+                <li>Mantenha uma rotina de hidratação ao longo do dia.</li>
+                <li>Pratique exercícios leves com orientação médica.</li>
+                <li>Mantenha contato frequente com familiares e amigos.</li>
+            </ul>
+        </section>
+
+        <section id="contato">
+            <h2>Precisa de Ajuda?</h2>
+            <p>Clique no botão abaixo para simular a solicitação de um voluntário:</p>
+            <button id="btn-solicitar">Solicitar Atendimento</button>
+            <p id="mensagem-status"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Apoio à Terceira Idade - Projeto Social</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+/* Configurações Globais voltadas para Acessibilidade */
+<body>
+     {
+    font-family: Arial, sans-serif;
+    font-size: 18px; /* Fonte maior para facilitar a leitura */
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f6;
+    color: #333;
+}
+</body>
+<header> {
+    background-color: #0056b3;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+}
+
+ <header> <h1> {
+    margin: 0;
+    font-size: 2.2rem;
+}
+
+<nav> {
+    background-color: #003d80;
+    padding: 10px 0;
+}
+
+<nav> <ul> {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+<nav> <a  {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.cards {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    flex: 1 1 calc(33.333% - 15px);
+    box-sizing: border-box;
+}
+
+ Botões legíveis e interativos *
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+#btn-contraste {
+    background-color: #ffffff;
+    color: #0056b3;
+}
+
+/* Modo Alto Contraste */
+body.alto-contraste {
+    background-color: #000000;
+    color: #ffff00;
+}
+
+body.alto-contraste header, 
+body.alto-contraste nav {
+    background-color: #111111;
+}
+
+body.alto-contraste .card {
+    background-color: #222222;
+    color: #ffffff;
+    border-color: #ffff00;
+}
+
+body.alto-contraste a {
+    color: #ffff00;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #ddd;
+    margin-top: 30px;
+}
+
