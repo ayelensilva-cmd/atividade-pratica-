@@ -3,72 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apoio & Carinho — Cuidado com a Terceira Idade</title>
+    <title>Apoio à Terceira Idade — Cuidado e Conexão</title>
     
+    <!-- Google Fonts para tipografia moderna e legível -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 
     <style>
         /* ==========================================================================
-           1. VARIÁVEIS E ESTILOS BASE (CSS)
+           1. ESTILOS BASE E VARIÁVEIS (CSS)
            ========================================================================== */
         :root {
-            --primary-color: #0d9488;
-            --primary-hover: #0f766e;
-            --secondary-color: #f97316;
-            --bg-color: #f8fafc;
-            --card-bg: #ffffff;
-            --text-color: #334155;
-            --heading-color: #0f172a;
-            --font-size-base: 18px; /* Tamanho maior para facilitar a leitura */
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #059669;
+            --accent: #f59e0b;
+            --bg-body: #f8fafc;
+            --bg-card: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --font-size: 18px; /* Tamanho base otimizado para legibilidade */
+            --radius: 12px;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
         }
 
-        /* Classe de Alto Contraste */
+        /* Estilos do Modo Alto Contraste */
         body.alto-contraste {
-            --primary-color: #ffff00;
-            --primary-hover: #ffffff;
-            --secondary-color: #ffff00;
-            --bg-color: #000000;
-            --card-bg: #121212;
-            --text-color: #ffffff;
-            --heading-color: #ffff00;
+            --primary: #ffff00;
+            --primary-dark: #ffffff;
+            --secondary: #ffff00;
+            --accent: #ffff00;
+            --bg-body: #000000;
+            --bg-card: #121212;
+            --text-main: #ffffff;
+            --text-muted: #e2e8f0;
+            --border-color: #ffff00;
+            --shadow: none;
         }
 
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            transition: background-color 0.3s, color 0.3s;
+            box-sizing: border-box;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
         }
 
         body {
-            font-family: 'Open Sans', sans-serif;
-            font-size: var(--font-size-base);
-            line-height: 1.7;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: var(--font-size);
+            line-height: 1.6;
+            background-color: var(--bg-body);
+            color: var(--text-main);
         }
 
-        /* Acessibilidade para foco de teclado */
-        a:focus-visible, button:focus-visible, input:focus-visible {
-            outline: 4px solid var(--secondary-color);
-            outline-offset: 2px;
+        /* Acessibilidade de foco para navegação por teclado */
+        a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 3px;
         }
 
         /* ==========================================================================
-           2. CABEÇALHO E NAVEGAÇÃO
+           2. NAVEGAÇÃO E CABEÇALHO
            ========================================================================== */
         header {
-            background-color: var(--card-bg);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            background-color: var(--bg-card);
+            border-bottom: 1px solid var(--border-color);
             position: sticky;
             top: 0;
             z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
         }
 
         .header-container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 1rem 1.5rem;
             display: flex;
@@ -79,41 +88,44 @@
         }
 
         .logo {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--primary-color);
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        .nav-menu {
+        .nav-links {
             display: flex;
             gap: 1.5rem;
             list-style: none;
-            align-items: center;
         }
 
-        .nav-menu a {
+        .nav-links a {
             text-decoration: none;
-            color: var(--text-color);
+            color: var(--text-main);
             font-weight: 600;
         }
 
-        .nav-menu a:hover {
-            color: var(--primary-color);
+        .nav-links a:hover {
+            color: var(--primary);
         }
 
-        .accessibility-tools {
+        .accessibility-bar {
             display: flex;
+            align-items: center;
             gap: 0.5rem;
         }
 
         .btn-access {
-            background: none;
-            border: 2px solid var(--primary-color);
-            color: var(--primary-color);
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
             padding: 0.4rem 0.8rem;
-            border-radius: 6px;
-            font-weight: bold;
+            border-radius: 8px;
+            font-weight: 700;
             cursor: pointer;
             font-size: 0.9rem;
         }
@@ -124,7 +136,7 @@
         }
 
         .btn-access:hover {
-            background-color: var(--primary-color);
+            background-color: var(--primary);
             color: #ffffff;
         }
 
@@ -137,14 +149,14 @@
            3. BANNER PRINCIPAL (HERO)
            ========================================================================== */
         .hero {
-            background: linear-gradient(135deg, var(--primary-color), #0284c7);
-            color: white;
-            padding: 4rem 1.5rem;
+            background: linear-gradient(135deg, #1e40af, var(--primary));
+            color: #ffffff;
+            padding: 5rem 1.5rem;
             text-align: center;
         }
 
         body.alto-contraste .hero {
-            background: #1a1a1a;
+            background: #111111;
             border-bottom: 2px solid #ffff00;
         }
 
@@ -154,8 +166,10 @@
         }
 
         .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            line-height: 1.2;
             color: #ffffff;
         }
 
@@ -166,98 +180,109 @@
         .hero p {
             font-size: 1.25rem;
             margin-bottom: 2rem;
-            opacity: 0.95;
+            opacity: 0.9;
         }
 
-        .btn-cta {
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 0.8rem 2rem;
+        .btn-main {
+            background-color: var(--secondary);
+            color: #ffffff;
+            padding: 0.9rem 2rem;
             border: none;
             border-radius: 50px;
             font-size: 1.1rem;
-            font-weight: bold;
+            font-weight: 700;
             cursor: pointer;
             text-decoration: none;
             display: inline-block;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
         }
 
-        body.alto-contraste .btn-cta {
+        body.alto-contraste .btn-main {
             background-color: #ffff00;
             color: #000000;
         }
 
-        .btn-cta:hover {
+        .btn-main:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
         }
 
         /* ==========================================================================
-           4. SEÇÕES E CARDS
+           4. SEÇÃO DE SERVIÇOS
            ========================================================================== */
         .container {
-            max-width: 1100px;
-            margin: 3rem auto;
+            max-width: 1200px;
+            margin: 4rem auto;
             padding: 0 1.5rem;
         }
 
-        .section-title {
+        .section-header {
             text-align: center;
-            font-size: 2rem;
-            color: var(--heading-color);
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
         }
 
-        .grid-services {
+        .section-header h2 {
+            font-size: 2.2rem;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+        }
+
+        .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
         .card {
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-            border: 1px solid rgba(0,0,0,0.05);
+            background-color: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 2.5rem 2rem;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
-        }
-
-        body.alto-contraste .card {
-            border: 1px solid #ffff00;
+            gap: 1rem;
         }
 
         .card-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            background-color: rgba(13, 148, 136, 0.1);
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
+            width: 60px;
+            height: 60px;
+            background-color: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+        }
+
+        body.alto-contraste .card-icon {
+            background-color: #ffff00;
+            color: #000000;
         }
 
         .card h3 {
             font-size: 1.4rem;
-            color: var(--heading-color);
-            margin-bottom: 0.8rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
         }
 
         /* ==========================================================================
-           5. FORMULÁRIO E CONTATO
+           5. FORMULÁRIO DE ATENDIMENTO
            ========================================================================== */
-        .contact-section {
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            padding: 2.5rem;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        .form-section {
+            background-color: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 3rem 2rem;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
             max-width: 700px;
             margin: 0 auto;
-        }
-
-        body.alto-contraste .contact-section {
-            border: 1px solid #ffff00;
         }
 
         .form-group {
@@ -268,37 +293,30 @@
             display: block;
             margin-bottom: 0.5rem;
             font-weight: 600;
-            color: var(--heading-color);
         }
 
         .form-group input, 
         .form-group select, 
         .form-group textarea {
             width: 100%;
-            padding: 0.8rem;
-            border: 2px solid #cbd5e1;
+            padding: 0.9rem;
+            border: 2px solid var(--border-color);
             border-radius: 8px;
             font-size: 1rem;
             font-family: inherit;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-        }
-
-        body.alto-contraste .form-group input,
-        body.alto-contraste .form-group select,
-        body.alto-contraste .form-group textarea {
-            border-color: #ffff00;
+            background-color: var(--bg-body);
+            color: var(--text-main);
         }
 
         .btn-submit {
             width: 100%;
-            background-color: var(--primary-color);
-            color: white;
+            background-color: var(--primary);
+            color: #ffffff;
             border: none;
             padding: 1rem;
             border-radius: 8px;
             font-size: 1.1rem;
-            font-weight: bold;
+            font-weight: 700;
             cursor: pointer;
         }
 
@@ -308,65 +326,198 @@
         }
 
         .btn-submit:hover {
-            background-color: var(--primary-hover);
+            background-color: var(--primary-dark);
         }
 
-        #mensagem-retorno {
-            margin-top: 1rem;
+        #feedback-msg {
+            display: none;
+            margin-top: 1.5rem;
             padding: 1rem;
             border-radius: 8px;
-            display: none;
-            font-weight: bold;
-            text-align: center;
-        }
-
-        .sucesso {
             background-color: #dcfce7;
             color: #15803d;
             border: 1px solid #86efac;
+            text-align: center;
+            font-weight: 700;
         }
 
         /* ==========================================================================
            6. RODAPÉ
            ========================================================================== */
         footer {
-            background-color: var(--heading-color);
-            color: white;
+            background-color: var(--bg-card);
+            border-top: 1px solid var(--border-color);
             text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
+            padding: 2.5rem 1.5rem;
+            margin-top: 5rem;
+            color: var(--text-muted);
         }
 
-        body.alto-contraste footer {
-            border-top: 1px solid #ffff00;
-            background-color: #000000;
-            color: #ffff00;
-        }
-
-        /* Responsividade para celulares */
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
             .header-container {
                 flex-direction: column;
             }
             .hero h1 {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
         }
     </style>
 </head>
 <body>
 
+    <!-- Cabeçalho com Acessibilidade -->
     <header>
         <div class="header-container">
-            <a href="#" class="logo">💙 Apoio & Carinho</a>
+            <a href="#" class="logo">
+                <span>💛</span> Apoio Terceira Idade
+            </a>
             <nav>
-                <ul class="nav-menu">
+                <ul class="nav-links">
                     <li><a href="#servicos">Serviços</a></li>
-                    <li><a href="#pedir-ajuda">Pedir Ajuda</a></li>
+                    <li><a href="#solicitar">Solicitar Apoio</a></li>
                 </ul>
             </nav>
-            <div class="accessibility-tools">
-                <button class="btn-access" id="btn-fonte-aumentar" title="Aumentar Fonte">A+</button>
-                <button class="btn-access" id="btn-fonte-diminuir" title="Diminuir Fonte">A-</button>
+            <div class="accessibility-bar">
+                <button class="btn-access" id="btn-aumentar" title="Aumentar Texto">A+</button>
+                <button class="btn-access" id="btn-diminuir" title="Diminuir Texto">A-</button>
                 <button class="btn-access" id="btn-contraste">Alto Contraste</button>
             </div>
+        </div>
+    </header>
+
+    <!-- Banner Principal -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Apoio, carinho e assistência para a melhor idade</h1>
+            <p>Conectamos voluntários e profissionais qualificados para ajudar idosos nas tarefas do dia a dia, tecnologia e momentos de lazer.</p>
+            <a href="#solicitar" class="btn-main">Pedir Ajuda Agora</a>
+        </div>
+    </section>
+
+    <!-- Seção de Serviços -->
+    <main class="container" id="servicos">
+        <div class="section-header">
+            <h2>Nossos Serviços Gratuitos</h2>
+            <p>Escolha a opção que você ou seu familiar precisa no momento</p>
+        </div>
+
+        <div class="cards-grid">
+            <article class="card">
+                <div class="card-icon">📱</div>
+                <h3>Inclusão Digital</h3>
+                <p>Aprenda a usar o celular com paciência: WhatsApp, chamadas de vídeo, redes sociais e navegação segura.</p>
+            </article>
+
+            <article class="card">
+                <div class="card-icon">🤝</div>
+                <h3>Companhia e Conversa</h3>
+                <p>Voluntários para bater um papo, fazer leituras, jogos de tabuleiro ou caminhadas no bairro.</p>
+            </article>
+
+            <article class="card">
+                <div class="card-icon">🛒</div>
+                <h3>Ajuda com Compras</h3>
+                <p>Auxílio para ir ao supermercado, buscar medicamentos na farmácia ou resolver pendências do dia a dia.</p>
+            </article>
+        </div>
+    </main>
+
+    <!-- Formulário de Solicitação -->
+    <section class="container" id="solicitar">
+        <div class="form-section">
+            <div class="section-header" style="margin-bottom: 2rem;">
+                <h2>Solicitar Atendimento</h2>
+                <p>Preencha os campos abaixo e entraremos em contato rapidamente.</p>
+            </div>
+
+            <form id="form-atendimento">
+                <div class="form-group">
+                    <label for="nome">Nome Completo:</label>
+                    <input type="text" id="nome" required placeholder="Ex: Maria da Silva">
+                </div>
+
+                <div class="form-group">
+                    <label for="telefone">Telefone ou WhatsApp:</label>
+                    <input type="tel" id="telefone" required placeholder="(00) 00000-0000">
+                </div>
+
+                <div class="form-group">
+                    <label for="servico">Tipo de Ajuda Necessária:</label>
+                    <select id="servico" required>
+                        <option value="">Selecione o serviço...</option>
+                        <option value="digital">Aulas de Celular / Tecnologia</option>
+                        <option value="companhia">Companhia para Conversar</option>
+                        <option value="compras">Ajuda com Compras / Farmácia</option>
+                        <option value="outros">Outro tipo de auxílio</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="mensagem">Mensagem / Observações (Opcional):</label>
+                    <textarea id="mensagem" rows="4" placeholder="Conte-nos um pouco sobre como podemos ajudar..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Enviar Pedido</button>
+            </form>
+
+            <div id="feedback-msg">
+                ✓ Solicitação enviada com sucesso! Nossa equipe entrará em contato em breve.
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2026 Apoio à Terceira Idade. Todos os direitos reservados. Projeto sem fins lucrativos.</p>
+    </footer>
+
+    <!-- ==========================================================================
+       7. LÓGICA E INTERATIVIDADE (JAVASCRIPT)
+       ========================================================================== -->
+    <script>
+        // --- 1. Alternar Modo Alto Contraste ---
+        const btnContraste = document.getElementById('btn-contraste');
+        btnContraste.addEventListener('click', () => {
+            document.body.classList.toggle('alto-contraste');
+        });
+
+        // --- 2. Controle do Tamanho do Texto ---
+        let tamanhoFonteAtual = 18; // Tamanho padrão em px
+        const btnAumentar = document.getElementById('btn-aumentar');
+        const btnDiminuir = document.getElementById('btn-diminuir');
+
+        btnAumentar.addEventListener('click', () => {
+            if (tamanhoFonteAtual < 26) {
+                tamanhoFonteAtual += 2;
+                document.body.style.fontSize = tamanhoFonteAtual + 'px';
+            }
+        });
+
+        btnDiminuir.addEventListener('click', () => {
+            if (tamanhoFonteAtual > 14) {
+                tamanhoFonteAtual -= 2;
+                document.body.style.fontSize = tamanhoFonteAtual + 'px';
+            }
+        });
+
+        // --- 3. Manipulação do Formulário ---
+        const form = document.getElementById('form-atendimento');
+        const feedbackMsg = document.getElementById('feedback-msg');
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault(); // Impede o envio do formulário padrão
+
+            // Exibe a mensagem de sucesso
+            feedbackMsg.style.display = 'block';
+
+            // Limpa o formulário
+            form.reset();
+
+            // Esconde a mensagem de confirmação após 5 segundos
+            setTimeout(() => {
+                feedbackMsg.style.display = 'none';
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
